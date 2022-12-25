@@ -1,0 +1,22 @@
+name: mobile_task
+description: A new Flutter project.
+publish_to: 'none'
+version: 1.0.0+1
+environment:
+  sdk: '>=2.18.5 <3.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.5
+  form_validation: ^2.2.0+1
+  google_fonts: ^3.0.1
+  intl: ^0.18.0
+  syncfusion_flutter_datagrid: ^20.4.38
+  form_floating_action_button: ^2.0.0+7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+flutter:
+  uses-material-design: true
