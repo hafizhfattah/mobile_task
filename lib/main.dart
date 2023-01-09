@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'pages/auth/signin_page.dart';
+import 'Pages/body/homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,6 +8,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: false,
         primarySwatch: Colors.blue,
       ),
-      home: const SignIn(),
+      home: const HomePage(),
     );
   }
 }

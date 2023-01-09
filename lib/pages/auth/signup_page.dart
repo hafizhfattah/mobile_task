@@ -14,6 +14,7 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   //Declaration
   bool isPassActive1 = true;
+
   bool isPassActive2 = true;
 
   @override

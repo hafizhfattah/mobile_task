@@ -8,11 +8,12 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.5
-  form_validation: ^2.2.0+1
+  fluid_dialog: ^1.1.0
+  form_floating_action_button: ^2.0.0+7
+  form_validation: ^2.2.0+3
   google_fonts: ^3.0.1
   intl: ^0.18.0
-  syncfusion_flutter_datagrid: ^20.4.38
-  form_floating_action_button: ^2.0.0+7
+  syncfusion_flutter_datagrid: ^20.4.41
 
 dev_dependencies:
   flutter_test:

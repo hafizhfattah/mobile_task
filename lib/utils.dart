@@ -9,10 +9,6 @@ const black = CupertinoColors.black;
 
 //Widget
 class MenuTask extends StatelessWidget {
-  final int total;
-  final String judul;
-  final Color warna;
-  final Widget route;
   const MenuTask({
     Key? key,
     required this.total,
@@ -20,6 +16,11 @@ class MenuTask extends StatelessWidget {
     required this.warna,
     required this.route,
   }) : super(key: key);
+
+  final String judul;
+  final Widget route;
+  final int total;
+  final Color warna;
 
   @override
   Widget build(BuildContext context) {
@@ -96,15 +97,16 @@ class MenuTask extends StatelessWidget {
 }
 
 class DrawerMenu extends StatelessWidget {
-  final String judul;
-  final Widget icon;
-  final Widget route;
   const DrawerMenu({
     Key? key,
     required this.judul,
     required this.icon,
     required this.route,
   }) : super(key: key);
+
+  final Widget icon;
+  final String judul;
+  final Widget route;
 
   @override
   Widget build(BuildContext context) {
@@ -134,21 +136,21 @@ class ButtonCustom extends StatelessWidget {
     required this.label,
     this.tinggi,
     required this.warna,
-    required this.route,
+    required this.onClick,
     this.topleft,
     this.topright,
     this.bottomright,
     this.bottomleft,
   }) : super(key: key);
 
+  final double? bottomleft;
+  final double? bottomright;
   final String label;
+  final Function onClick;
   final double? tinggi;
-  final Color warna;
-  final Widget route;
   final double? topleft;
   final double? topright;
-  final double? bottomright;
-  final double? bottomleft;
+  final Color warna;
 
   @override
   Widget build(BuildContext context) {
@@ -163,10 +165,9 @@ class ButtonCustom extends StatelessWidget {
         color: warna,
         child: InkWell(
           splashColor: Colors.grey,
-          onTap: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => route),
-          ),
+          onTap: () {
+            onClick;
+          },
           child: Container(
             alignment: Alignment.center,
             height: tinggi,

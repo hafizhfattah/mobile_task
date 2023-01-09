@@ -67,12 +67,6 @@ class MyData extends DataTableSource {
           });
 
   @override
-  bool get isRowCountApproximate => false;
-  @override
-  int get rowCount => _data.length;
-  @override
-  int get selectedRowCount => 0;
-  @override
   DataRow getRow(int index) {
     return DataRow(cells: [
       DataCell(Text(_data[index]['id'].toString())),
@@ -80,4 +74,13 @@ class MyData extends DataTableSource {
       DataCell(Text(_data[index]["price"].toString())),
     ]);
   }
+
+  @override
+  bool get isRowCountApproximate => false;
+
+  @override
+  int get rowCount => _data.length;
+
+  @override
+  int get selectedRowCount => 0;
 }

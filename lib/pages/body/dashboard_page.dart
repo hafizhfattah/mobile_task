@@ -20,41 +20,30 @@ class Dashboardpage extends StatelessWidget {
           ),
         ),
       ),
-      body: ListView.builder(
-        padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 10),
-        itemCount: 10,
-        shrinkWrap: true,
-        physics: const ScrollPhysics(),
-        itemBuilder: (BuildContext context, int index) {
-          return Card(
-            child: ListTile(
-              hoverColor: Colors.grey[200],
-              leading: CircleAvatar(
-                backgroundColor: Colors.grey[200],
-                backgroundImage: NetworkImage(
-                  "https://picsum.photos/${index + 20}",
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Container(
+            height: 100.0,
+            alignment: Alignment.center,
+            decoration: const BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0x19000000),
+                  blurRadius: 24,
+                  offset: Offset(0, 11),
+                ),
+              ],
+              color: white,
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  16.0,
                 ),
               ),
-              title: Text(
-                "Welcome ${index + 1}",
-                style: GoogleFonts.montserrat(
-                  color: black,
-                  letterSpacing: 1,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              subtitle: Text(
-                "Tugas ${index + 1}",
-                style: GoogleFonts.montserrat(
-                  color: black,
-                  letterSpacing: 1,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              onTap: () {},
             ),
-          );
-        },
+            child: const Text("ini dashboard"),
+          ),
+        ],
       ),
     );
   }
