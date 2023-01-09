@@ -213,9 +213,6 @@ class HomePage extends StatelessWidget {
           const SizedBox(
             height: 20.0,
           ),
-          const SizedBox(
-            height: 20.0,
-          ),
           const MenuTask(
             total: 9,
             warna: Colors.red,
