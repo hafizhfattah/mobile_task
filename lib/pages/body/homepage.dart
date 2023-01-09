@@ -10,12 +10,14 @@ import 'package:mobile_task/pages/body/homepage/home_inreview.dart';
 import 'package:mobile_task/pages/body/homepage/home_onhold.dart';
 import 'package:mobile_task/pages/body/homepage/home_open.dart';
 import 'package:mobile_task/pages/body/homepage/home_progress.dart';
+import 'package:mobile_task/pages/body/management/management_account.dart';
 import 'package:mobile_task/pages/body/management/management_menu.dart';
 import 'package:mobile_task/pages/body/management/management_role.dart';
 import 'package:mobile_task/pages/body/management/management_user.dart';
 
 import '../../utils.dart';
 import 'dashboard_page.dart';
+import 'homepage/home_timeline.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -132,10 +134,10 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            DrawerMenu(
-              icon: const Icon(Icons.manage_accounts_rounded),
+            const DrawerMenu(
+              icon: Icon(Icons.manage_accounts_rounded),
               judul: "Manage Account",
-              route: Container(),
+              route: ManagementAccount(),
             ),
             const DrawerMenu(
               icon: Icon(
@@ -199,6 +201,18 @@ class HomePage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(12),
         children: [
+          const SizedBox(
+            height: 20.0,
+          ),
+          const MenuTask(
+            total: 3,
+            warna: Colors.black,
+            judul: "Timeline",
+            route: HomeTimeline(),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
           const SizedBox(
             height: 20.0,
           ),

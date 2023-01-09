@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../utils.dart';
@@ -13,7 +12,7 @@ class ManagementRole extends StatefulWidget {
 }
 
 class _ManagementRoleState extends State<ManagementRole> {
-  final DataTableSource _data = MyData();
+  List role = ["Admin", "User"];
 
   @override
   Widget build(BuildContext context) {
@@ -23,64 +22,85 @@ class _ManagementRoleState extends State<ManagementRole> {
           backgroundColor: black,
           centerTitle: false,
           title: Text(
-            "Management User",
+            "Management Role",
             style: GoogleFonts.montserrat(
               letterSpacing: 1,
               fontWeight: FontWeight.w500,
             ),
           ),
         ),
-        body: ListView(
-          children: [
-            PaginatedDataTable(
-              initialFirstRowIndex: 1,
-              dataRowHeight: 50,
-              source: _data,
-              columns: const [
-                DataColumn(numeric: false, label: Text('ID')),
-                DataColumn(numeric: false, label: Text('Name')),
-                DataColumn(numeric: true, label: Text('Price'))
-              ],
-              columnSpacing: 120,
-              horizontalMargin: 12,
-              rowsPerPage: 6,
-              showFirstLastButtons: true,
-              sortAscending: true,
-              showCheckboxColumn: true,
-            ),
-          ],
+        body: Padding(
+          padding: const EdgeInsets.all(12),
+          child: ListView.builder(
+            itemCount: role.length,
+            shrinkWrap: true,
+            physics: const ScrollPhysics(),
+            itemBuilder: (BuildContext context, int index) {
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Slidable(
+                    endActionPane: ActionPane(
+                      motion: const StretchMotion(),
+                      children: [
+                        SlidableAction(
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(12.0),
+                          ),
+                          onPressed: (value) {},
+                          backgroundColor: Colors.blue[300]!,
+                          foregroundColor: Colors.white,
+                          icon: Icons.edit,
+                        ),
+                        const SizedBox(
+                          width: 3,
+                        ),
+                        SlidableAction(
+                          flex: 2,
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(12.0),
+                          ),
+                          onPressed: (value) {},
+                          backgroundColor: Colors.red[300]!,
+                          foregroundColor: Colors.white,
+                          icon: Icons.delete,
+                        ),
+                      ],
+                    ),
+                    child: Card(
+                      child: ListTile(
+                        mouseCursor: SystemMouseCursors.click,
+                        onTap: () {},
+                        subtitle: Text(
+                          "Role No ${index + 1}",
+                          style: GoogleFonts.montserrat(
+                            letterSpacing: 1,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        title: Row(
+                          children: [
+                            Text(
+                              "${role[index]}",
+                              style: GoogleFonts.montserrat(
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
   }
-}
-
-// The "soruce" of the table
-class MyData extends DataTableSource {
-  // Generate some made-up data
-  final List<Map<String, dynamic>> _data = List.generate(
-      200,
-      (index) => {
-            "id": index,
-            "title": "Item $index ",
-            "price": Random().nextInt(10000)
-          });
-
-  @override
-  DataRow getRow(int index) {
-    return DataRow(cells: [
-      DataCell(Text(_data[index]['id'].toString())),
-      DataCell(Text(_data[index]["title"])),
-      DataCell(Text(_data[index]["price"].toString())),
-    ]);
-  }
-
-  @override
-  bool get isRowCountApproximate => false;
-
-  @override
-  int get rowCount => _data.length;
-
-  @override
-  int get selectedRowCount => 0;
 }

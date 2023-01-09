@@ -1,6 +1,6 @@
-import 'dart:math';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../utils.dart';
@@ -13,8 +13,6 @@ class ManagementMenu extends StatefulWidget {
 }
 
 class _ManagementMenuState extends State<ManagementMenu> {
-  final DataTableSource _data = MyData();
-
   @override
   Widget build(BuildContext context) {
     return SelectionArea(
@@ -23,7 +21,7 @@ class _ManagementMenuState extends State<ManagementMenu> {
           backgroundColor: black,
           centerTitle: false,
           title: Text(
-            "Management User",
+            "Management Menu",
             style: GoogleFonts.montserrat(
               letterSpacing: 1,
               fontWeight: FontWeight.w500,
@@ -31,56 +29,301 @@ class _ManagementMenuState extends State<ManagementMenu> {
           ),
         ),
         body: ListView(
+          padding: const EdgeInsets.all(16),
           children: [
-            PaginatedDataTable(
-              initialFirstRowIndex: 1,
-              dataRowHeight: 50,
-              source: _data,
-              columns: const [
-                DataColumn(numeric: false, label: Text('ID')),
-                DataColumn(numeric: false, label: Text('Name')),
-                DataColumn(numeric: true, label: Text('Price'))
-              ],
-              columnSpacing: 120,
-              horizontalMargin: 12,
-              rowsPerPage: 6,
-              showFirstLastButtons: true,
-              sortAscending: true,
-              showCheckboxColumn: true,
+            Slidable(
+              endActionPane: ActionPane(
+                motion: const StretchMotion(),
+                children: [
+                  SlidableAction(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(12.0),
+                    ),
+                    onPressed: (value) {},
+                    backgroundColor: Colors.blue[300]!,
+                    foregroundColor: Colors.white,
+                    icon: Icons.edit,
+                  ),
+                  const SizedBox(
+                    width: 3,
+                  ),
+                  SlidableAction(
+                    flex: 2,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(12.0),
+                    ),
+                    onPressed: (value) {},
+                    backgroundColor: Colors.red[300]!,
+                    foregroundColor: Colors.white,
+                    icon: Icons.delete,
+                  ),
+                ],
+              ),
+              child: Card(
+                child: ListTile(
+                  mouseCursor: SystemMouseCursors.click,
+                  onTap: () {},
+                  title: Text(
+                    "1. Dashboard",
+                    style: GoogleFonts.montserrat(
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  subtitle: Row(
+                    children: [
+                      Text(
+                        "Menu Parent: 0, Route: /u/dashboard",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.indigo,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                  trailing: const Icon(
+                    Icons.dashboard,
+                    color: black,
+                  ),
+                ),
+              ),
+            ),
+            Slidable(
+              endActionPane: ActionPane(
+                motion: const StretchMotion(),
+                children: [
+                  SlidableAction(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(12.0),
+                    ),
+                    onPressed: (value) {},
+                    backgroundColor: Colors.blue[300]!,
+                    foregroundColor: Colors.white,
+                    icon: Icons.edit,
+                  ),
+                  const SizedBox(
+                    width: 3,
+                  ),
+                  SlidableAction(
+                    flex: 2,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(12.0),
+                    ),
+                    onPressed: (value) {},
+                    backgroundColor: Colors.red[300]!,
+                    foregroundColor: Colors.white,
+                    icon: Icons.delete,
+                  ),
+                ],
+              ),
+              child: Card(
+                child: ListTile(
+                  mouseCursor: SystemMouseCursors.click,
+                  onTap: () {},
+                  title: Text(
+                    "2. Boards",
+                    style: GoogleFonts.montserrat(
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  subtitle: Row(
+                    children: [
+                      Text(
+                        "Menu Parent: 0,",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.indigo,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                  trailing: const Icon(
+                    CupertinoIcons.list_dash,
+                    color: black,
+                  ),
+                ),
+              ),
+            ),
+            Slidable(
+              endActionPane: ActionPane(
+                motion: const StretchMotion(),
+                children: [
+                  SlidableAction(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(12.0),
+                    ),
+                    onPressed: (value) {},
+                    backgroundColor: Colors.blue[300]!,
+                    foregroundColor: Colors.white,
+                    icon: Icons.edit,
+                  ),
+                  const SizedBox(
+                    width: 3,
+                  ),
+                  SlidableAction(
+                    flex: 2,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(12.0),
+                    ),
+                    onPressed: (value) {},
+                    backgroundColor: Colors.red[300]!,
+                    foregroundColor: Colors.white,
+                    icon: Icons.delete,
+                  ),
+                ],
+              ),
+              child: Card(
+                child: ListTile(
+                  mouseCursor: SystemMouseCursors.click,
+                  onTap: () {},
+                  title: Text(
+                    "3. Management User",
+                    style: GoogleFonts.montserrat(
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  subtitle: Row(
+                    children: [
+                      Text(
+                        "Menu Parent: 0, Route: /u/management_user",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.indigo,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                  trailing: const Icon(
+                    Icons.person,
+                    color: black,
+                  ),
+                ),
+              ),
+            ),
+            Slidable(
+              endActionPane: ActionPane(
+                motion: const StretchMotion(),
+                children: [
+                  SlidableAction(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(12.0),
+                    ),
+                    onPressed: (value) {},
+                    backgroundColor: Colors.blue[300]!,
+                    foregroundColor: Colors.white,
+                    icon: Icons.edit,
+                  ),
+                  const SizedBox(
+                    width: 3,
+                  ),
+                  SlidableAction(
+                    flex: 2,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(12.0),
+                    ),
+                    onPressed: (value) {},
+                    backgroundColor: Colors.red[300]!,
+                    foregroundColor: Colors.white,
+                    icon: Icons.delete,
+                  ),
+                ],
+              ),
+              child: Card(
+                child: ListTile(
+                  mouseCursor: SystemMouseCursors.click,
+                  onTap: () {},
+                  title: Text(
+                    "4. Management Role",
+                    style: GoogleFonts.montserrat(
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  subtitle: Row(
+                    children: [
+                      Text(
+                        "Menu Parent: 0, Route: /u/management_role",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.indigo,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                  trailing: const Icon(
+                    CupertinoIcons.person_2_fill,
+                    color: black,
+                  ),
+                ),
+              ),
+            ),
+            Slidable(
+              endActionPane: ActionPane(
+                motion: const StretchMotion(),
+                children: [
+                  SlidableAction(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(12.0),
+                    ),
+                    onPressed: (value) {},
+                    backgroundColor: Colors.blue[300]!,
+                    foregroundColor: Colors.white,
+                    icon: Icons.edit,
+                  ),
+                  const SizedBox(
+                    width: 3,
+                  ),
+                  SlidableAction(
+                    flex: 2,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(12.0),
+                    ),
+                    onPressed: (value) {},
+                    backgroundColor: Colors.red[300]!,
+                    foregroundColor: Colors.white,
+                    icon: Icons.delete,
+                  ),
+                ],
+              ),
+              child: Card(
+                child: ListTile(
+                  mouseCursor: SystemMouseCursors.click,
+                  onTap: () {},
+                  title: Text(
+                    "5. Management Menu",
+                    style: GoogleFonts.montserrat(
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  subtitle: Row(
+                    children: [
+                      Text(
+                        "Menu Parent: 5, Route: /u/management_menu",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.indigo,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                  trailing: const Icon(
+                    CupertinoIcons.square_favorites_fill,
+                    color: black,
+                  ),
+                ),
+              ),
             ),
           ],
         ),
       ),
     );
   }
-}
-
-// The "soruce" of the table
-class MyData extends DataTableSource {
-  // Generate some made-up data
-  final List<Map<String, dynamic>> _data = List.generate(
-      200,
-      (index) => {
-            "id": index,
-            "title": "Item $index ",
-            "price": Random().nextInt(10000)
-          });
-
-  @override
-  DataRow getRow(int index) {
-    return DataRow(cells: [
-      DataCell(Text(_data[index]['id'].toString())),
-      DataCell(Text(_data[index]["title"])),
-      DataCell(Text(_data[index]["price"].toString())),
-    ]);
-  }
-
-  @override
-  bool get isRowCountApproximate => false;
-
-  @override
-  int get rowCount => _data.length;
-
-  @override
-  int get selectedRowCount => 0;
 }
