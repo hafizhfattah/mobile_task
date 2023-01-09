@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mobile_task/utils.dart';
+
+import '../../../utils.dart';
 
 class ManagementAccount extends StatelessWidget {
   const ManagementAccount({super.key});
@@ -10,6 +11,13 @@ class ManagementAccount extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: black,
+        title: Text(
+          "Management Account",
+          style: GoogleFonts.montserrat(
+            letterSpacing: 1,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ),
       body: Center(
         child: Text(
