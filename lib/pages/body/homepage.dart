@@ -511,7 +511,7 @@ class _InputDialogPageState extends State<InputDialogPage> {
                 );
                 return validator.validate(
                   context: context,
-                  label: 'Description',
+                  label: 'Assign a member',
                   value: value,
                 );
               },
@@ -556,7 +556,7 @@ class _InputDialogPageState extends State<InputDialogPage> {
                     Radius.circular(12.0),
                   ),
                 ),
-                labelText: 'Description',
+                labelText: 'Assign a member',
               ),
             ),
             const SizedBox(
