@@ -232,7 +232,7 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
                   ));
-                  await Future.delayed(const Duration(milliseconds: 500), () {
+                  await Future.delayed(const Duration(milliseconds: 100), () {
                     setState(() {});
                   });
                   Navigator.push(

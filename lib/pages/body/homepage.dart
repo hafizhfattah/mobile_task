@@ -187,7 +187,7 @@ class HomePage extends StatelessWidget {
                     content: Text(
                       "Success Logout",
                       style: GoogleFonts.montserrat(
-                        color: white,
+                        // color: white,
                         letterSpacing: 1,
                         fontWeight: FontWeight.w500,
                       ),
