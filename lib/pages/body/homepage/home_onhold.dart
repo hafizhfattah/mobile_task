@@ -9,7 +9,7 @@ class HomeOnhold extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
-        backgroundColor: Colors.yellow,
+        // backgroundColor: Colors.yellow,
         title: Text(
           "On Hold",
           style: GoogleFonts.montserrat(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'pages/body/homepage.dart';
+import 'package:mobile_task/pages/auth/signin_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,16 +7,16 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Mobile Task',
-      theme: ThemeData(
-        useMaterial3: false,
-        primarySwatch: Colors.blue,
+      theme: ThemeData.dark(
+        useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const SignIn(),
     );
   }
 }

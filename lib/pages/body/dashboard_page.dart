@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../utils.dart';
-
 class Dashboardpage extends StatelessWidget {
   const Dashboardpage({super.key});
 
@@ -10,7 +8,7 @@ class Dashboardpage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: black,
+          // backgroundColor: black,
           centerTitle: false,
           title: Text(
             "Dashboard",

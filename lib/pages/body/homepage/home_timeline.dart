@@ -9,7 +9,7 @@ class HomeTimeline extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
-        backgroundColor: Colors.black,
+        // backgroundColor: Colors.black,
         title: Text(
           "Timeline",
           style: GoogleFonts.montserrat(

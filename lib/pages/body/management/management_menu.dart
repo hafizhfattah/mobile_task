@@ -84,10 +84,13 @@ class _ManagementMenuState extends State<ManagementMenu> {
                   ),
                   trailing: const Icon(
                     Icons.dashboard,
-                    color: black,
+                    // color: black,
                   ),
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 10.0,
             ),
             Slidable(
               endActionPane: ActionPane(
@@ -142,10 +145,13 @@ class _ManagementMenuState extends State<ManagementMenu> {
                   ),
                   trailing: const Icon(
                     CupertinoIcons.list_dash,
-                    color: black,
+                    // color: black,
                   ),
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 10.0,
             ),
             Slidable(
               endActionPane: ActionPane(
@@ -200,10 +206,13 @@ class _ManagementMenuState extends State<ManagementMenu> {
                   ),
                   trailing: const Icon(
                     Icons.person,
-                    color: black,
+                    // color: black,
                   ),
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 10.0,
             ),
             Slidable(
               endActionPane: ActionPane(
@@ -258,10 +267,13 @@ class _ManagementMenuState extends State<ManagementMenu> {
                   ),
                   trailing: const Icon(
                     CupertinoIcons.person_2_fill,
-                    color: black,
+                    // color: black,
                   ),
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 10.0,
             ),
             Slidable(
               endActionPane: ActionPane(
@@ -316,7 +328,7 @@ class _ManagementMenuState extends State<ManagementMenu> {
                   ),
                   trailing: const Icon(
                     CupertinoIcons.square_favorites_fill,
-                    color: black,
+                    // color: black,
                   ),
                 ),
               ),

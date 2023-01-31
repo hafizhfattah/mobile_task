@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../utils.dart';
-
 class ManagementUser extends StatefulWidget {
   const ManagementUser({Key? key}) : super(key: key);
 
@@ -17,7 +15,7 @@ class _ManagementUserState extends State<ManagementUser> {
     return SelectionArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: black,
+          // backgroundColor: black,
           centerTitle: false,
           title: Text(
             "Management User",

@@ -9,7 +9,7 @@ class HomeCompleted extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
-        backgroundColor: Colors.green,
+        // backgroundColor: Colors.green,
         title: Text(
           "Completed",
           style: GoogleFonts.montserrat(

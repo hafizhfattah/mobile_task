@@ -9,7 +9,7 @@ class HomeInReview extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
-        backgroundColor: Colors.indigo,
+        // backgroundColor: Colors.indigo,
         title: Text(
           "In Review",
           style: GoogleFonts.montserrat(

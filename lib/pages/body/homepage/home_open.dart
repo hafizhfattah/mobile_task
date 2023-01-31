@@ -9,7 +9,7 @@ class HomeOpen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
-        backgroundColor: Colors.red,
+        // backgroundColor: Colors.red,
         title: Text(
           "Open",
           style: GoogleFonts.montserrat(

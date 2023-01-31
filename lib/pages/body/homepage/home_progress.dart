@@ -9,7 +9,7 @@ class HomeProgress extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,
-        backgroundColor: Colors.blue,
+        // backgroundColor: Colors.blue,
         title: Text(
           "Progress",
           style: GoogleFonts.montserrat(

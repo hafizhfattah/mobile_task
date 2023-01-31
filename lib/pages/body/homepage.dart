@@ -3,6 +3,7 @@
 import 'package:fluid_dialog/fluid_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:form_validation/form_validation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_task/pages/auth/signin_page.dart';
 import 'package:mobile_task/pages/body/homepage/home_completed.dart';
@@ -25,10 +26,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
+      // backgroundColor: white,
       appBar: AppBar(
         centerTitle: false,
-        backgroundColor: Colors.black,
+        // backgroundColor: Colors.black,
         title: Text(
           "HomePage",
           style: GoogleFonts.montserrat(
@@ -56,7 +57,7 @@ class HomePage extends StatelessWidget {
               title: Text(
                 "Boards",
                 style: GoogleFonts.montserrat(
-                  color: black,
+                  // color: black,
                   letterSpacing: 1,
                   fontWeight: FontWeight.w500,
                 ),
@@ -67,7 +68,7 @@ class HomePage extends StatelessWidget {
                   title: Text(
                     "Create a new board",
                     style: GoogleFonts.montserrat(
-                      color: Colors.red,
+                      // color: Colors.red,
                       letterSpacing: 1,
                       fontWeight: FontWeight.w500,
                     ),
@@ -89,7 +90,7 @@ class HomePage extends StatelessWidget {
                   title: Text(
                     "PT Pertamina (Persero)",
                     style: GoogleFonts.montserrat(
-                      color: black,
+                      // color: black,
                       letterSpacing: 1,
                       fontWeight: FontWeight.w500,
                     ),
@@ -101,7 +102,7 @@ class HomePage extends StatelessWidget {
                   title: Text(
                     "PT PLN (Persero)",
                     style: GoogleFonts.montserrat(
-                      color: black,
+                      // color: black,
                       letterSpacing: 1,
                       fontWeight: FontWeight.w500,
                     ),
@@ -113,7 +114,7 @@ class HomePage extends StatelessWidget {
                   title: Text(
                     "PT Gudang Garam",
                     style: GoogleFonts.montserrat(
-                      color: black,
+                      // color: black,
                       letterSpacing: 1,
                       fontWeight: FontWeight.w500,
                     ),
@@ -125,7 +126,7 @@ class HomePage extends StatelessWidget {
                   title: Text(
                     "PT Astra International Tbk",
                     style: GoogleFonts.montserrat(
-                      color: black,
+                      // color: black,
                       letterSpacing: 1,
                       fontWeight: FontWeight.w500,
                     ),
@@ -167,7 +168,7 @@ class HomePage extends StatelessWidget {
                 title: Text(
                   "Logout",
                   style: GoogleFonts.montserrat(
-                    color: black,
+                    // color: black,
                     letterSpacing: 1,
                     fontWeight: FontWeight.w500,
                   ),
@@ -182,7 +183,7 @@ class HomePage extends StatelessWidget {
 
                   //SnackBar
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    backgroundColor: black,
+                    // backgroundColor: black,
                     content: Text(
                       "Success Logout",
                       style: GoogleFonts.montserrat(
@@ -310,19 +311,18 @@ class ConfimationDialog extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () async {
-                      await Future.delayed(const Duration(milliseconds: 100),
-                          () {
-                        DialogNavigator.of(context).close();
-                      });
+                      DialogNavigator.of(context).close();
+
+                      Navigator.pop(context);
 
                       //SnackBar
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        duration: const Duration(seconds: 3),
-                        backgroundColor: black,
+                        duration: const Duration(seconds: 2),
+                        // backgroundColor: black,
                         content: Text(
                           "Progress Saved",
                           style: GoogleFonts.montserrat(
-                            color: white,
+                            // color: white,
                             letterSpacing: 1,
                             fontWeight: FontWeight.w500,
                           ),
@@ -347,142 +347,252 @@ class ConfimationDialog extends StatelessWidget {
   }
 }
 
-class InputDialogPage extends StatelessWidget {
+class InputDialogPage extends StatefulWidget {
   const InputDialogPage({Key? key}) : super(key: key);
+
+  @override
+  State<InputDialogPage> createState() => _InputDialogPageState();
+}
+
+class _InputDialogPageState extends State<InputDialogPage> {
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            children: [
-              Text(
-                "Create new board",
-                style: GoogleFonts.montserrat(
-                  letterSpacing: 1,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const Spacer(),
-              GestureDetector(
-                onTap: () => DialogNavigator.of(context).close(),
-                child: const Icon(
-                  Icons.close_rounded,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 18.0,
-          ),
-          TextFormField(
-            enableSuggestions: true,
-            style: GoogleFonts.montserrat(
-              letterSpacing: 1,
-              fontWeight: FontWeight.w500,
-            ),
-            initialValue: null,
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              labelText: "Name",
-              labelStyle: GoogleFonts.montserrat(
-                letterSpacing: 1,
-                fontWeight: FontWeight.w500,
-              ),
-              border: OutlineInputBorder(
-                gapPadding: 2,
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            onChanged: (value) {},
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          TextFormField(
-            enableSuggestions: true,
-            style: GoogleFonts.montserrat(
-              letterSpacing: 1,
-              fontWeight: FontWeight.w500,
-            ),
-            initialValue: null,
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              labelText: "Descripton",
-              labelStyle: GoogleFonts.montserrat(
-                letterSpacing: 1,
-                fontWeight: FontWeight.w500,
-              ),
-              border: OutlineInputBorder(
-                gapPadding: 2,
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            onChanged: (value) {},
-          ),
-          const SizedBox(
-            height: 15.0,
-          ),
-          TextFormField(
-            enableSuggestions: true,
-            style: GoogleFonts.montserrat(
-              letterSpacing: 1,
-              fontWeight: FontWeight.w500,
-            ),
-            initialValue: null,
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              labelText: "Assign a member (Optional)",
-              labelStyle: GoogleFonts.montserrat(
-                letterSpacing: 1,
-                fontWeight: FontWeight.w500,
-              ),
-              border: OutlineInputBorder(
-                gapPadding: 2,
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            onChanged: (value) {},
-          ),
-          const SizedBox(
-            height: 20.0,
-          ),
-          SizedBox(
-            height: 40,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.indigo,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10), // <-- Radius
-                ),
-              ),
-              onPressed: () {
-                DialogNavigator.of(context).push(
-                  FluidDialogPage(
-                    alignment: Alignment.topLeft,
-                    builder: (context) => const ConfimationDialog(),
+      child: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              children: [
+                Text(
+                  "Create new board",
+                  style: GoogleFonts.montserrat(
+                    letterSpacing: 1,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
                   ),
+                ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () => DialogNavigator.of(context).close(),
+                  child: const Icon(
+                    Icons.close_rounded,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 18.0,
+            ),
+            TextFormField(
+              validator: (value) {
+                final validator = Validator(
+                  validators: [RequiredValidator()],
+                );
+                return validator.validate(
+                  context: context,
+                  label: 'Name',
+                  value: value,
                 );
               },
-              child: Text(
-                "Submit",
-                style: GoogleFonts.montserrat(
-                  color: white,
+              keyboardType: TextInputType.emailAddress,
+              style: GoogleFonts.montserrat(
+                // color: Colors.blueGrey,
+                letterSpacing: 1,
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+              decoration: InputDecoration(
+                labelStyle: GoogleFonts.montserrat(
+                  // color: Colors.blueGrey,
                   letterSpacing: 1,
-                  fontSize: 16,
+                  fontSize: 14,
                   fontWeight: FontWeight.w500,
+                ),
+                floatingLabelStyle: GoogleFonts.montserrat(
+                  letterSpacing: 1,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+                hintStyle: GoogleFonts.montserrat(
+                  // color: Colors.blueGrey,
+                  letterSpacing: 1,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+                errorStyle: GoogleFonts.montserrat(
+                  color: CupertinoColors.systemRed,
+                  letterSpacing: 1,
+                  fontWeight: FontWeight.w500,
+                ),
+                suffixIcon: const Padding(
+                  padding: EdgeInsets.only(right: 8),
+                  child: Icon(
+                    Icons.person,
+                  ),
+                ),
+                border: const OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(12.0),
+                  ),
+                ),
+                labelText: 'Name',
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            TextFormField(
+              validator: (value) {
+                final validator = Validator(
+                  validators: [RequiredValidator()],
+                );
+                return validator.validate(
+                  context: context,
+                  label: 'Description',
+                  value: value,
+                );
+              },
+              keyboardType: TextInputType.emailAddress,
+              style: GoogleFonts.montserrat(
+                // color: Colors.blueGrey,
+                letterSpacing: 1,
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+              decoration: InputDecoration(
+                labelStyle: GoogleFonts.montserrat(
+                  // color: Colors.blueGrey,
+                  letterSpacing: 1,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+                floatingLabelStyle: GoogleFonts.montserrat(
+                  letterSpacing: 1,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+                hintStyle: GoogleFonts.montserrat(
+                  // color: Colors.blueGrey,
+                  letterSpacing: 1,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+                errorStyle: GoogleFonts.montserrat(
+                  color: CupertinoColors.systemRed,
+                  letterSpacing: 1,
+                  fontWeight: FontWeight.w500,
+                ),
+                suffixIcon: const Padding(
+                  padding: EdgeInsets.only(right: 8),
+                  child: Icon(
+                    Icons.create_rounded,
+                  ),
+                ),
+                border: const OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(12.0),
+                  ),
+                ),
+                labelText: 'Description',
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            TextFormField(
+              validator: (value) {
+                final validator = Validator(
+                  validators: [RequiredValidator()],
+                );
+                return validator.validate(
+                  context: context,
+                  label: 'Description',
+                  value: value,
+                );
+              },
+              keyboardType: TextInputType.emailAddress,
+              style: GoogleFonts.montserrat(
+                // color: Colors.blueGrey,
+                letterSpacing: 1,
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+              decoration: InputDecoration(
+                labelStyle: GoogleFonts.montserrat(
+                  // color: Colors.blueGrey,
+                  letterSpacing: 1,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+                floatingLabelStyle: GoogleFonts.montserrat(
+                  letterSpacing: 1,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+                hintStyle: GoogleFonts.montserrat(
+                  // color: Colors.blueGrey,
+                  letterSpacing: 1,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+                errorStyle: GoogleFonts.montserrat(
+                  color: CupertinoColors.systemRed,
+                  letterSpacing: 1,
+                  fontWeight: FontWeight.w500,
+                ),
+                suffixIcon: const Padding(
+                  padding: EdgeInsets.only(right: 8),
+                  child: Icon(
+                    Icons.create_rounded,
+                  ),
+                ),
+                border: const OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(12.0),
+                  ),
+                ),
+                labelText: 'Description',
+              ),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            SizedBox(
+              height: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  // backgroundColor: Colors.indigo,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12), // <-- Radius
+                  ),
+                ),
+                onPressed: () async {
+                  if (_formKey.currentState!.validate()) {
+                    DialogNavigator.of(context).push(
+                      FluidDialogPage(
+                        alignment: Alignment.topLeft,
+                        builder: (context) => const ConfimationDialog(),
+                      ),
+                    );
+                  }
+                },
+                child: Text(
+                  "Submit",
+                  style: GoogleFonts.montserrat(
+                    letterSpacing: 1,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
