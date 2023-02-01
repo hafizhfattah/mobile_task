@@ -11,6 +11,7 @@ dependencies:
   fluid_dialog: ^1.1.0
   flutter_slidable: ^2.0.0
   form_validation: ^2.2.0+3
+  get: ^4.6.5
   google_fonts: ^3.0.1
 
 dev_dependencies:

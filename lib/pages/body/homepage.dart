@@ -4,6 +4,7 @@ import 'package:fluid_dialog/fluid_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:form_validation/form_validation.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_task/pages/auth/signin_page.dart';
 import 'package:mobile_task/pages/body/homepage/home_completed.dart';
@@ -20,9 +21,15 @@ import '../../utils.dart';
 import 'dashboard_page.dart';
 import 'homepage/home_timeline.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final MyController c = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,12 +37,137 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: false,
         // backgroundColor: Colors.black,
-        title: Text(
-          "HomePage",
-          style: GoogleFonts.montserrat(
-            letterSpacing: 1,
-            fontWeight: FontWeight.w500,
-          ),
+        title: Row(
+          children: [
+            Text(
+              "HomePage",
+              style: GoogleFonts.montserrat(
+                letterSpacing: 1,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const Spacer(),
+            MenuBar(
+              children: <Widget>[
+                SubmenuButton(
+                  menuChildren: <Widget>[
+                    MenuItemButton(
+                      onPressed: () {
+                        setState(() {
+                          c.isActive.value = !c.isActive.value;
+                        });
+                      },
+                      child: Row(
+                        children: [
+                          Text(
+                            "Darkmode",
+                            style: GoogleFonts.montserrat(
+                              letterSpacing: 1,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 5.0,
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              setState(() {
+                                c.isActive.value = !c.isActive.value;
+                              });
+                            },
+                            icon: c.isActive.value
+                                ? const Icon(Icons.dark_mode_rounded)
+                                : const Icon(Icons.light_mode_rounded),
+                          ),
+                        ],
+                      ),
+                    ),
+                    MenuItemButton(
+                      onPressed: () {
+                        bool confirm = false;
+                        showDialog<void>(
+                          context: context,
+                          barrierDismissible: true,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text(
+                                "About",
+                                style: GoogleFonts.montserrat(
+                                  letterSpacing: 1,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              content: SingleChildScrollView(
+                                child: ListBody(children: <Widget>[
+                                  Text(
+                                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                                    style: GoogleFonts.montserrat(
+                                      letterSpacing: 1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ]),
+                              ),
+                              actions: <Widget>[
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text(
+                                    "No",
+                                    style: GoogleFonts.montserrat(
+                                      letterSpacing: 1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(),
+                                  onPressed: () {
+                                    confirm = true;
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text(
+                                    "Yes",
+                                    style: GoogleFonts.montserrat(
+                                      letterSpacing: 1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+
+                        if (confirm) {
+                          debugPrint("-------------------");
+                        }
+                      },
+                      child: Text(
+                        "About",
+                        style: GoogleFonts.montserrat(
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                  leadingIcon: const Icon(
+                    Icons.settings,
+                  ),
+                  child: Text(
+                    "Settings",
+                    style: GoogleFonts.montserrat(
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
         ),
       ),
 
@@ -189,7 +321,7 @@ class HomePage extends StatelessWidget {
                       style: GoogleFonts.montserrat(
                         // color: white,
                         letterSpacing: 1,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ));
@@ -324,7 +456,7 @@ class ConfimationDialog extends StatelessWidget {
                           style: GoogleFonts.montserrat(
                             // color: white,
                             letterSpacing: 1,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ));

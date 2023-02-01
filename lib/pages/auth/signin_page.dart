@@ -121,6 +121,7 @@ class _SignInState extends State<SignIn> {
                     final validator = Validator(
                       validators: [
                         RequiredValidator(),
+                        MinLengthValidator(length: 6),
                       ],
                     );
                     return validator.validate(
@@ -228,7 +229,7 @@ class _SignInState extends State<SignIn> {
                       style: GoogleFonts.montserrat(
                         // color: white,
                         letterSpacing: 1,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ));

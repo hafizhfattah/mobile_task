@@ -62,7 +62,9 @@ class _SignUpState extends State<SignUp> {
                 TextFormField(
                   validator: (value) {
                     final validator = Validator(
-                      validators: [RequiredValidator()],
+                      validators: [
+                        RequiredValidator(),
+                      ],
                     );
                     return validator.validate(
                       context: context,
@@ -170,6 +172,64 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                     labelText: 'Email',
+                  ),
+                ),
+                const SizedBox(
+                  height: 16.0,
+                ),
+                TextFormField(
+                  validator: (value) {
+                    final validator = Validator(
+                      validators: [PhoneNumberValidator(), RequiredValidator()],
+                    );
+                    return validator.validate(
+                      context: context,
+                      label: 'Phone',
+                      value: value,
+                    );
+                  },
+                  keyboardType: TextInputType.emailAddress,
+                  style: GoogleFonts.montserrat(
+                    // color: Colors.blueGrey,
+                    letterSpacing: 1,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  decoration: InputDecoration(
+                    labelStyle: GoogleFonts.montserrat(
+                      // color: Colors.blueGrey,
+                      letterSpacing: 1,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    floatingLabelStyle: GoogleFonts.montserrat(
+                      letterSpacing: 1,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    hintStyle: GoogleFonts.montserrat(
+                      // color: Colors.blueGrey,
+                      letterSpacing: 1,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    errorStyle: GoogleFonts.montserrat(
+                      color: CupertinoColors.systemRed,
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    suffixIcon: const Padding(
+                      padding: EdgeInsets.only(right: 8),
+                      child: Icon(
+                        Icons.call_rounded,
+                      ),
+                    ),
+                    border: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(12.0),
+                      ),
+                    ),
+                    labelText: 'Phone',
                   ),
                 ),
                 const SizedBox(
@@ -326,24 +386,36 @@ class _SignUpState extends State<SignUp> {
               ),
               onPressed: () async {
                 if (_formKey.currentState!.validate()) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    // backgroundColor: black,
-                    content: Text(
-                      "Success Login",
-                      style: GoogleFonts.montserrat(
-                        // color: white,
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ));
-                  await Future.delayed(const Duration(milliseconds: 500), () {
+                  showDialog<void>(
+                    context: context,
+                    barrierDismissible: true,
+                    useSafeArea: true,
+                    builder: (BuildContext context) {
+                      return const Center(
+                        child: CircularProgressIndicator.adaptive(),
+                      );
+                    },
+                  );
+                  await Future.delayed(const Duration(seconds: 1), () {
                     setState(() {});
                   });
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const HomePage()),
                   );
+                  await Future.delayed(const Duration(milliseconds: 600), () {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      // backgroundColor: black,
+                      content: Text(
+                        "Success Login",
+                        style: GoogleFonts.montserrat(
+                          // color: white,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ));
+                  });
                 }
               },
               child: Text(
