@@ -313,7 +313,7 @@ class _SignUpState extends State<SignUp> {
                       return 'Empty';
                     }
                     if (val != _pass.text) {
-                      return 'Not Match';
+                      return 'Password Not Match';
                     }
                     return null;
                   },

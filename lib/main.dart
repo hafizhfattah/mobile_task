@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_task/pages/auth/signin_page.dart';
-import 'utils.dart';
+import 'utils/const.dart';
 
 void main() {
   runApp(const MyApp());

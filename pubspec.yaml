@@ -13,6 +13,7 @@ dependencies:
   form_validation: ^2.2.0+3
   get: ^4.6.5
   google_fonts: ^3.0.1
+  syncfusion_flutter_charts: ^20.4.48
 
 dev_dependencies:
   flutter_test:
