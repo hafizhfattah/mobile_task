@@ -586,3 +586,139 @@ class _InputDialogPageHomeState extends State<InputDialogPageHome> {
     );
   }
 }
+
+//homepage - Folder
+class InputDialogPageHomeChecklist extends StatefulWidget {
+  const InputDialogPageHomeChecklist({Key? key}) : super(key: key);
+
+  @override
+  State<InputDialogPageHomeChecklist> createState() =>
+      _InputDialogPageHomeChecklistState();
+}
+
+class _InputDialogPageHomeChecklistState
+    extends State<InputDialogPageHomeChecklist> {
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              children: [
+                Text(
+                  "Add checklist",
+                  style: GoogleFonts.montserrat(
+                    letterSpacing: 1,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () => DialogNavigator.of(context).close(),
+                  child: const Icon(
+                    Icons.close_rounded,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 18.0,
+            ),
+            TextFormField(
+              validator: (value) {
+                final validator = Validator(
+                  validators: [RequiredValidator()],
+                );
+                return validator.validate(
+                  context: context,
+                  label: 'Checklist Name',
+                  value: value,
+                );
+              },
+              keyboardType: TextInputType.emailAddress,
+              style: GoogleFonts.montserrat(
+                // color: Colors.blueGrey,
+                letterSpacing: 1,
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
+              decoration: InputDecoration(
+                labelStyle: GoogleFonts.montserrat(
+                  // color: Colors.blueGrey,
+                  letterSpacing: 1,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+                floatingLabelStyle: GoogleFonts.montserrat(
+                  letterSpacing: 1,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+                hintStyle: GoogleFonts.montserrat(
+                  // color: Colors.blueGrey,
+                  letterSpacing: 1,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                ),
+                errorStyle: GoogleFonts.montserrat(
+                  color: CupertinoColors.systemRed,
+                  letterSpacing: 1,
+                  fontWeight: FontWeight.w500,
+                ),
+                suffixIcon: const Padding(
+                  padding: EdgeInsets.only(right: 8),
+                  child: Icon(Icons.library_books_rounded),
+                ),
+                border: const OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(12.0),
+                  ),
+                ),
+                labelText: 'Checklist Name',
+              ),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            SizedBox(
+              height: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  // backgroundColor: Colors.indigo,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12), // <-- Radius
+                  ),
+                ),
+                onPressed: () async {
+                  if (_formKey.currentState!.validate()) {
+                    DialogNavigator.of(context).push(
+                      FluidDialogPage(
+                        alignment: Alignment.center,
+                        builder: (context) => const ConfimationDialogHome(),
+                      ),
+                    );
+                  }
+                },
+                child: Text(
+                  "Create",
+                  style: GoogleFonts.montserrat(
+                    letterSpacing: 1,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

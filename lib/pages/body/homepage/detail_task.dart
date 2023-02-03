@@ -1,6 +1,10 @@
+import 'package:fluid_dialog/fluid_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:form_validation/form_validation.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../../utils/widget.dart';
 
 class DetailTask extends StatefulWidget {
   const DetailTask({Key? key}) : super(key: key);
@@ -15,6 +19,93 @@ class _DetailTaskState extends State<DetailTask> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {
+            // bool confirm = false;
+            // showDialog<void>(
+            //   context: context,
+            //   barrierDismissible: true,
+            //   builder: (BuildContext context) {
+            //     return AlertDialog(
+            //       title: Row(
+            //         children: [
+            //           Text(
+            //             "Confirmation",
+            //             style: GoogleFonts.montserrat(
+            //               letterSpacing: 1,
+            //               fontSize: 18,
+            //               fontWeight: FontWeight.w600,
+            //             ),
+            //           ),
+            //           const Spacer(),
+            //           GestureDetector(
+            //             onTap: () => Navigator.pop(context),
+            //             child: const Icon(
+            //               Icons.close_rounded,
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //       content: SingleChildScrollView(
+            //         child: ListBody(
+            //           children: <Widget>[
+            //             Text(
+            //               "Are you sure you want to save the progress?",
+            //               style: GoogleFonts.montserrat(
+            //                 letterSpacing: 1,
+            //                 fontWeight: FontWeight.w500,
+            //               ),
+            //             ),
+            //           ],
+            //         ),
+            //       ),
+            //       actions: <Widget>[
+            //         ElevatedButton(
+            //           style: ElevatedButton.styleFrom(),
+            //           onPressed: () {
+            //             confirm = true;
+            //             Navigator.pop(context);
+            //             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            //               // backgroundColor: black,
+            //               content: Text(
+            //                 "Your Progress Saved",
+            //                 style: GoogleFonts.montserrat(
+            //                   // color: white,
+            //                   letterSpacing: 1,
+            //                   fontWeight: FontWeight.w600,
+            //                 ),
+            //               ),
+            //             ));
+            //           },
+            //           child: Text(
+            //             "Yes",
+            //             style: GoogleFonts.montserrat(
+            //               letterSpacing: 1,
+            //               fontWeight: FontWeight.w600,
+            //             ),
+            //           ),
+            //         ),
+            //       ],
+            //     );
+            //   },
+            // );
+
+            // if (confirm) {}
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              duration: const Duration(seconds: 2),
+              // backgroundColor: black,
+              content: Text(
+                "Project Added",
+                style: GoogleFonts.montserrat(
+                  // color: white,
+                  letterSpacing: 1,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ));
+          },
+        ),
         appBar: AppBar(
           title: Text(
             "Create Video",
@@ -82,93 +173,95 @@ class _DetailTaskState extends State<DetailTask> {
                 const SizedBox(
                   height: 14.0,
                 ),
-                GestureDetector(
-                  onLongPress: () {
-                    bool confirm = false;
-                    showDialog<void>(
+                TextFormField(
+                  validator: (value) {
+                    final validator = Validator(
+                      validators: [RequiredValidator()],
+                    );
+                    return validator.validate(
                       context: context,
-                      barrierDismissible: true,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text(
-                            "About",
+                      label: 'Project Name',
+                      value: value,
+                    );
+                  },
+                  keyboardType: TextInputType.emailAddress,
+                  style: GoogleFonts.montserrat(
+                    // color: Colors.blueGrey,
+                    letterSpacing: 1,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  decoration: InputDecoration(
+                    icon: MenuBar(
+                      children: [
+                        SubmenuButton(
+                          menuChildren: [
+                            MenuItemButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Checklist",
+                                style: GoogleFonts.montserrat(
+                                  letterSpacing: 1,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                            MenuItemButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Delete",
+                                style: GoogleFonts.montserrat(
+                                  letterSpacing: 1,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            )
+                          ],
+                          leadingIcon: const Icon(
+                            Icons.settings,
+                          ),
+                          child: Text(
+                            "Menu",
                             style: GoogleFonts.montserrat(
                               letterSpacing: 1,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          content: SingleChildScrollView(
-                            child: ListBody(children: <Widget>[
-                              Text(
-                                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                                style: GoogleFonts.montserrat(
-                                  letterSpacing: 1,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ]),
-                          ),
-                          actions: <Widget>[
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: Text(
-                                "No",
-                                style: GoogleFonts.montserrat(
-                                  letterSpacing: 1,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(),
-                              onPressed: () {
-                                confirm = true;
-                                Navigator.pop(context);
-                              },
-                              child: Text(
-                                "Yes",
-                                style: GoogleFonts.montserrat(
-                                  letterSpacing: 1,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-
-                    if (confirm) {
-                      debugPrint("-------------------");
-                    }
-                  },
-                  child: Card(
-                    child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundColor: Colors.grey[200],
-                          backgroundImage: const NetworkImage(
-                            "https://i.ibb.co/QrTHd59/woman.jpg",
-                          ),
                         ),
-                        title: const Text("Jessica Doe"),
-                        trailing: const MenuBar(
-                          children: [
-                            SubmenuButton(
-                              menuChildren: [
-                                MenuItemButton(
-                                  child: Text("text"),
-                                )
-                              ],
-                              child: Icon(
-                                Icons.developer_board,
-                                size: 24.0,
-                              ),
-                            ),
-                          ],
-                        )),
+                      ],
+                    ),
+                    labelStyle: GoogleFonts.montserrat(
+                      // color: Colors.blueGrey,
+                      letterSpacing: 1,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    floatingLabelStyle: GoogleFonts.montserrat(
+                      letterSpacing: 1,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    hintStyle: GoogleFonts.montserrat(
+                      // color: Colors.blueGrey,
+                      letterSpacing: 1,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    errorStyle: GoogleFonts.montserrat(
+                      color: CupertinoColors.systemRed,
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    suffixIcon: const Padding(
+                      padding: EdgeInsets.only(right: 8),
+                      child: Icon(Icons.library_books_rounded),
+                    ),
+                    border: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(12.0),
+                      ),
+                    ),
+                    labelText: 'Project Name',
                   ),
                 ),
               ],
@@ -248,7 +341,18 @@ class _DetailTaskState extends State<DetailTask> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => FluidDialog(
+                        rootPage: FluidDialogPage(
+                          alignment: Alignment.center,
+                          builder: (context) =>
+                              const InputDialogPageHomeChecklist(),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),

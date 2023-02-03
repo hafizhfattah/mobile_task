@@ -49,166 +49,118 @@ class _HomeTimelineState extends State<HomeTimeline> {
           return MouseRegion(
             cursor: SystemMouseCursors.click,
             child: GestureDetector(
-              onTap: () {
-                showModalBottomSheet<void>(
+              onLongPress: () {
+                showDialog<void>(
                   context: context,
+                  barrierDismissible: true,
                   builder: (BuildContext context) {
-                    return Container(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Wrap(
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  "Empty",
+                    return AlertDialog(
+                      title: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Text(
+                              "Actions",
+                              style: GoogleFonts.montserrat(
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            const Spacer(),
+                            MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              child: GestureDetector(
+                                onTap: () => Navigator.pop(context),
+                                child: const Icon(
+                                  Icons.close_rounded,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      content: SingleChildScrollView(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ListBody(children: <Widget>[
+                            SizedBox(
+                              height: 50,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  // backgroundColor: Colors.indigo,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.circular(12), // <-- Radius
+                                  ),
+                                ),
+                                onPressed: () async {},
+                                child: Text(
+                                  "Edit",
                                   style: GoogleFonts.montserrat(
                                     letterSpacing: 1,
-                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                const SizedBox(
-                                  height: 20.0,
-                                ),
-                                ElevatedButton(
-                                  style: ElevatedButton.styleFrom(),
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Text(
-                                    "Back",
-                                    style: GoogleFonts.montserrat(
-                                      letterSpacing: 1,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                              ),
                             ),
-                          ),
-                        ],
+                            const SizedBox(
+                              height: 10.0,
+                            ),
+                            SizedBox(
+                              height: 50,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  // backgroundColor: Colors.indigo,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.circular(12), // <-- Radius
+                                  ),
+                                ),
+                                onPressed: () async {},
+                                child: Text(
+                                  "Deleted",
+                                  style: GoogleFonts.montserrat(
+                                    letterSpacing: 1,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ]),
+                        ),
                       ),
                     );
                   },
                 );
               },
-              child: GestureDetector(
-                onLongPress: () {
-                  showDialog<void>(
-                    context: context,
-                    barrierDismissible: true,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              Text(
-                                "Actions",
-                                style: GoogleFonts.montserrat(
-                                  letterSpacing: 1,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              const Spacer(),
-                              MouseRegion(
-                                cursor: SystemMouseCursors.click,
-                                child: GestureDetector(
-                                  onTap: () => Navigator.pop(context),
-                                  child: const Icon(
-                                    Icons.close_rounded,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        content: SingleChildScrollView(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: ListBody(children: <Widget>[
-                              SizedBox(
-                                height: 50,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    // backgroundColor: Colors.indigo,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(
-                                          12), // <-- Radius
-                                    ),
-                                  ),
-                                  onPressed: () async {},
-                                  child: Text(
-                                    "Edit",
-                                    style: GoogleFonts.montserrat(
-                                      letterSpacing: 1,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 10.0,
-                              ),
-                              SizedBox(
-                                height: 50,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    // backgroundColor: Colors.indigo,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(
-                                          12), // <-- Radius
-                                    ),
-                                  ),
-                                  onPressed: () async {},
-                                  child: Text(
-                                    "Deleted",
-                                    style: GoogleFonts.montserrat(
-                                      letterSpacing: 1,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ]),
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
-                child: Card(
-                  child: ListTile(
-                    onTap: () {
+              child: Card(
+                child: ListTile(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DetailTask()),
+                    );
+                  },
+                  trailing: IconButton(
+                    onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const DetailTask()),
                       );
                     },
-                    trailing: IconButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const DetailTask()),
-                        );
-                      },
-                      icon: const Icon(
-                        Icons.edit,
-                      ),
+                    icon: const Icon(
+                      Icons.edit,
                     ),
-                    title: Text(
-                      "1. Create Video",
-                      style: GoogleFonts.montserrat(
-                        letterSpacing: 1,
-                        fontWeight: FontWeight.w500,
-                      ),
+                  ),
+                  title: Text(
+                    "1. Create Video",
+                    style: GoogleFonts.montserrat(
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
