@@ -166,6 +166,7 @@ class _DetailTaskState extends State<DetailTask> {
                     "70%",
                     style: GoogleFonts.montserrat(
                       letterSpacing: 1,
+                      color: Colors.white,
                       fontWeight: FontWeight.w500,
                     ),
                   ),

@@ -26,7 +26,7 @@ class DrawerMenu extends StatelessWidget {
         style: GoogleFonts.montserrat(
           // color: black,
           letterSpacing: 1,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w600,
         ),
       ),
       onTap: () {
