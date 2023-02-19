@@ -26,6 +26,9 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        toolbarHeight: 0,
+      ),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(16),
