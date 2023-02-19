@@ -68,17 +68,13 @@ class _ManagementMenuState extends State<ManagementMenu> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  subtitle: Row(
-                    children: [
-                      Text(
-                        "Menu Parent: 0, Route: /u/dashboard",
-                        style: GoogleFonts.montserrat(
-                          color: Colors.indigo,
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
+                  subtitle: Text(
+                    "Menu Parent: 0, Route: /u/dashboard",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.indigo,
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                   trailing: const Icon(
                     Icons.dashboard,
@@ -129,17 +125,13 @@ class _ManagementMenuState extends State<ManagementMenu> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  subtitle: Row(
-                    children: [
-                      Text(
-                        "Menu Parent: 0,",
-                        style: GoogleFonts.montserrat(
-                          color: Colors.indigo,
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
+                  subtitle: Text(
+                    "Menu Parent: 0,",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.indigo,
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                   trailing: const Icon(
                     CupertinoIcons.list_dash,
@@ -190,17 +182,13 @@ class _ManagementMenuState extends State<ManagementMenu> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  subtitle: Row(
-                    children: [
-                      Text(
-                        "Menu Parent: 0, Route: /u/management_user",
-                        style: GoogleFonts.montserrat(
-                          color: Colors.indigo,
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
+                  subtitle: Text(
+                    "Menu Parent: 0, Route: /u/management_user",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.indigo,
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                   trailing: const Icon(
                     Icons.person,
@@ -251,17 +239,13 @@ class _ManagementMenuState extends State<ManagementMenu> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  subtitle: Row(
-                    children: [
-                      Text(
-                        "Menu Parent: 0, Route: /u/management_role",
-                        style: GoogleFonts.montserrat(
-                          color: Colors.indigo,
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
+                  subtitle: Text(
+                    "Menu Parent: 0, Route: /u/management_role",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.indigo,
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                   trailing: const Icon(
                     CupertinoIcons.person_2_fill,
@@ -312,17 +296,13 @@ class _ManagementMenuState extends State<ManagementMenu> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  subtitle: Row(
-                    children: [
-                      Text(
-                        "Menu Parent: 5, Route: /u/management_menu",
-                        style: GoogleFonts.montserrat(
-                          color: Colors.indigo,
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
+                  subtitle: Text(
+                    "Menu Parent: 5, Route: /u/management_menu",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.indigo,
+                      letterSpacing: 1,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                   trailing: const Icon(
                     CupertinoIcons.square_favorites_fill,

@@ -374,42 +374,23 @@ class _DetailTaskState extends State<DetailTask> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  title: Row(
-                    children: [
-                      Text(
-                        "31 January 2022",
-                        style: GoogleFonts.montserrat(
-                          // color: black,
-                          letterSpacing: 1,
-                          fontWeight: FontWeight.w500,
+                  title: index.isOdd
+                      ? Text(
+                          "31 January 2022 → Task Create By Johndoe",
+                          style: GoogleFonts.montserrat(
+                            // color: black,
+                            letterSpacing: 1,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        )
+                      : Text(
+                          "20 January 2022 → Task Deleted By Johndoe",
+                          style: GoogleFonts.montserrat(
+                            // color: black,
+                            letterSpacing: 1,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 8.0,
-                      ),
-                      const Icon(Icons.arrow_forward_rounded),
-                      const SizedBox(
-                        width: 8.0,
-                      ),
-                      index.isOdd
-                          ? Text(
-                              "Task Create By Johndoe",
-                              style: GoogleFonts.montserrat(
-                                // color: black,
-                                letterSpacing: 1,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            )
-                          : Text(
-                              "Task Deleted By Johndoe",
-                              style: GoogleFonts.montserrat(
-                                // color: black,
-                                letterSpacing: 1,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            )
-                    ],
-                  ),
                   onTap: () {},
                 );
               },
