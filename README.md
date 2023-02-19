@@ -66,4 +66,5 @@ flutter_native_splash:
 3. Run the project In Web or Emulator
 
 ### 📷 **Demo**
+https://user-images.githubusercontent.com/68719199/219936236-62b01868-a3a1-48ee-b3d3-961680046e69.mp4
 
