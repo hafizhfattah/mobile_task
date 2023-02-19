@@ -136,266 +136,274 @@ class _DetailTaskState extends State<DetailTask> {
             ],
           ),
         ),
-        body: TabBarView(
-          children: [
-            ListView(
-              padding: const EdgeInsets.all(10),
-              children: [
-                Text(
-                  "Progress:",
-                  style: GoogleFonts.montserrat(
-                    letterSpacing: 1,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(
-                  height: 9.0,
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  height: 30.0,
-                  decoration: const BoxDecoration(
-                    color: Colors.indigo,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(
-                        99.0,
+        body: SafeArea(
+          child: TabBarView(
+            children: [
+              SafeArea(
+                child: ListView(
+                  padding: const EdgeInsets.all(10),
+                  children: [
+                    Text(
+                      "Progress:",
+                      style: GoogleFonts.montserrat(
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
-                  ),
-                  child: Text(
-                    "70%",
-                    style: GoogleFonts.montserrat(
-                      letterSpacing: 1,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
+                    const SizedBox(
+                      height: 9.0,
                     ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 14.0,
-                ),
-                TextFormField(
-                  validator: (value) {
-                    final validator = Validator(
-                      validators: [RequiredValidator()],
-                    );
-                    return validator.validate(
-                      context: context,
-                      label: 'Project Name',
-                      value: value,
-                    );
-                  },
-                  keyboardType: TextInputType.emailAddress,
-                  style: GoogleFonts.montserrat(
-                    // color: Colors.blueGrey,
-                    letterSpacing: 1,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                  ),
-                  decoration: InputDecoration(
-                    icon: MenuBar(
-                      children: [
-                        SubmenuButton(
-                          menuChildren: [
-                            MenuItemButton(
-                              onPressed: () {},
+                    Container(
+                      alignment: Alignment.center,
+                      height: 30.0,
+                      decoration: const BoxDecoration(
+                        color: Colors.indigo,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(
+                            99.0,
+                          ),
+                        ),
+                      ),
+                      child: Text(
+                        "70%",
+                        style: GoogleFonts.montserrat(
+                          letterSpacing: 1,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 14.0,
+                    ),
+                    TextFormField(
+                      validator: (value) {
+                        final validator = Validator(
+                          validators: [RequiredValidator()],
+                        );
+                        return validator.validate(
+                          context: context,
+                          label: 'Project Name',
+                          value: value,
+                        );
+                      },
+                      keyboardType: TextInputType.emailAddress,
+                      style: GoogleFonts.montserrat(
+                        // color: Colors.blueGrey,
+                        letterSpacing: 1,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      decoration: InputDecoration(
+                        icon: MenuBar(
+                          children: [
+                            SubmenuButton(
+                              menuChildren: [
+                                MenuItemButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Checklist",
+                                    style: GoogleFonts.montserrat(
+                                      letterSpacing: 1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                                MenuItemButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    "Delete",
+                                    style: GoogleFonts.montserrat(
+                                      letterSpacing: 1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                )
+                              ],
+                              leadingIcon: const Icon(
+                                Icons.settings,
+                              ),
                               child: Text(
-                                "Checklist",
+                                "Menu",
                                 style: GoogleFonts.montserrat(
                                   letterSpacing: 1,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
                             ),
-                            MenuItemButton(
-                              onPressed: () {},
-                              child: Text(
-                                "Delete",
-                                style: GoogleFonts.montserrat(
-                                  letterSpacing: 1,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                          ],
+                        ),
+                        labelStyle: GoogleFonts.montserrat(
+                          // color: Colors.blueGrey,
+                          letterSpacing: 1,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        floatingLabelStyle: GoogleFonts.montserrat(
+                          letterSpacing: 1,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        hintStyle: GoogleFonts.montserrat(
+                          // color: Colors.blueGrey,
+                          letterSpacing: 1,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        errorStyle: GoogleFonts.montserrat(
+                          color: CupertinoColors.systemRed,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        suffixIcon: const Padding(
+                          padding: EdgeInsets.only(right: 8),
+                          child: Icon(Icons.library_books_rounded),
+                        ),
+                        border: const OutlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(12.0),
+                          ),
+                        ),
+                        labelText: 'Project Name',
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SafeArea(
+                child: ListView(
+                  children: [
+                    ListTile(
+                      trailing: const Icon(
+                        CupertinoIcons.forward,
+                      ),
+                      leading: const Icon(Icons.person),
+                      title: Text(
+                        "Assign Member",
+                        style: GoogleFonts.montserrat(
+                          // color: black,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      trailing: const Icon(
+                        CupertinoIcons.forward,
+                      ),
+                      leading: const Icon(Icons.date_range_rounded),
+                      title: Text(
+                        "Date Description",
+                        style: GoogleFonts.montserrat(
+                          // color: black,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      trailing: const Icon(
+                        CupertinoIcons.forward,
+                      ),
+                      leading: const Icon(Icons.description),
+                      title: Text(
+                        "Description",
+                        style: GoogleFonts.montserrat(
+                          // color: black,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      trailing: const Icon(
+                        CupertinoIcons.forward,
+                      ),
+                      leading: const Icon(Icons.info_outline_rounded),
+                      title: Text(
+                        "Status",
+                        style: GoogleFonts.montserrat(
+                          // color: black,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      onTap: () {},
+                    ),
+                    ListTile(
+                      trailing: const Icon(
+                        CupertinoIcons.forward,
+                      ),
+                      leading: const Icon(Icons.check_circle_rounded),
+                      title: Text(
+                        "Checklist",
+                        style: GoogleFonts.montserrat(
+                          // color: black,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => FluidDialog(
+                            rootPage: FluidDialogPage(
+                              alignment: Alignment.center,
+                              builder: (context) =>
+                                  const InputDialogPageHomeChecklist(),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              SafeArea(
+                child: ListView.builder(
+                  itemCount: 5,
+                  physics: const ScrollPhysics(),
+                  itemBuilder: (BuildContext context, int index) {
+                    return ListTile(
+                      leading: const Icon(
+                        Icons.start_rounded,
+                      ),
+                      contentPadding: const EdgeInsets.all(8),
+                      subtitle: Text(
+                        "Esse esse irure ex mollit ut tempor magna aliquip laboris.",
+                        style: GoogleFonts.montserrat(
+                          // color: black,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      title: index.isOdd
+                          ? Text(
+                              "31 January 2022 → Task Create By Johndoe",
+                              style: GoogleFonts.montserrat(
+                                // color: black,
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.w500,
                               ),
                             )
-                          ],
-                          leadingIcon: const Icon(
-                            Icons.settings,
-                          ),
-                          child: Text(
-                            "Menu",
-                            style: GoogleFonts.montserrat(
-                              letterSpacing: 1,
-                              fontWeight: FontWeight.w500,
+                          : Text(
+                              "20 January 2022 → Task Deleted By Johndoe",
+                              style: GoogleFonts.montserrat(
+                                // color: black,
+                                letterSpacing: 1,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    labelStyle: GoogleFonts.montserrat(
-                      // color: Colors.blueGrey,
-                      letterSpacing: 1,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    floatingLabelStyle: GoogleFonts.montserrat(
-                      letterSpacing: 1,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    hintStyle: GoogleFonts.montserrat(
-                      // color: Colors.blueGrey,
-                      letterSpacing: 1,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    errorStyle: GoogleFonts.montserrat(
-                      color: CupertinoColors.systemRed,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    suffixIcon: const Padding(
-                      padding: EdgeInsets.only(right: 8),
-                      child: Icon(Icons.library_books_rounded),
-                    ),
-                    border: const OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(12.0),
-                      ),
-                    ),
-                    labelText: 'Project Name',
-                  ),
-                ),
-              ],
-            ),
-            ListView(
-              children: [
-                ListTile(
-                  trailing: const Icon(
-                    CupertinoIcons.forward,
-                  ),
-                  leading: const Icon(Icons.person),
-                  title: Text(
-                    "Assign Member",
-                    style: GoogleFonts.montserrat(
-                      // color: black,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
-                ListTile(
-                  trailing: const Icon(
-                    CupertinoIcons.forward,
-                  ),
-                  leading: const Icon(Icons.date_range_rounded),
-                  title: Text(
-                    "Date Description",
-                    style: GoogleFonts.montserrat(
-                      // color: black,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
-                ListTile(
-                  trailing: const Icon(
-                    CupertinoIcons.forward,
-                  ),
-                  leading: const Icon(Icons.description),
-                  title: Text(
-                    "Description",
-                    style: GoogleFonts.montserrat(
-                      // color: black,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
-                ListTile(
-                  trailing: const Icon(
-                    CupertinoIcons.forward,
-                  ),
-                  leading: const Icon(Icons.info_outline_rounded),
-                  title: Text(
-                    "Status",
-                    style: GoogleFonts.montserrat(
-                      // color: black,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  onTap: () {},
-                ),
-                ListTile(
-                  trailing: const Icon(
-                    CupertinoIcons.forward,
-                  ),
-                  leading: const Icon(Icons.check_circle_rounded),
-                  title: Text(
-                    "Checklist",
-                    style: GoogleFonts.montserrat(
-                      // color: black,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) => FluidDialog(
-                        rootPage: FluidDialogPage(
-                          alignment: Alignment.center,
-                          builder: (context) =>
-                              const InputDialogPageHomeChecklist(),
-                        ),
-                      ),
+                      onTap: () {},
                     );
                   },
                 ),
-              ],
-            ),
-            ListView.builder(
-              itemCount: 5,
-              physics: const ScrollPhysics(),
-              itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  leading: const Icon(
-                    Icons.start_rounded,
-                  ),
-                  contentPadding: const EdgeInsets.all(8),
-                  subtitle: Text(
-                    "Esse esse irure ex mollit ut tempor magna aliquip laboris.",
-                    style: GoogleFonts.montserrat(
-                      // color: black,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  title: index.isOdd
-                      ? Text(
-                          "31 January 2022 → Task Create By Johndoe",
-                          style: GoogleFonts.montserrat(
-                            // color: black,
-                            letterSpacing: 1,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        )
-                      : Text(
-                          "20 January 2022 → Task Deleted By Johndoe",
-                          style: GoogleFonts.montserrat(
-                            // color: black,
-                            letterSpacing: 1,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                  onTap: () {},
-                );
-              },
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );

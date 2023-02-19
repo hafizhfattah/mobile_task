@@ -25,71 +25,73 @@ class _ManagementUserState extends State<ManagementUser> {
             ),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(12),
-          child: ListView.builder(
-            itemCount: 5,
-            shrinkWrap: true,
-            physics: const ScrollPhysics(),
-            itemBuilder: (BuildContext context, int index) {
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Slidable(
-                    endActionPane: ActionPane(
-                      motion: const StretchMotion(),
-                      children: [
-                        SlidableAction(
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(12.0),
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: ListView.builder(
+              itemCount: 5,
+              shrinkWrap: true,
+              physics: const ScrollPhysics(),
+              itemBuilder: (BuildContext context, int index) {
+                return Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Slidable(
+                      endActionPane: ActionPane(
+                        motion: const StretchMotion(),
+                        children: [
+                          SlidableAction(
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(12.0),
+                            ),
+                            onPressed: (value) {},
+                            backgroundColor: Colors.blue[300]!,
+                            foregroundColor: Colors.white,
+                            icon: Icons.edit,
                           ),
-                          onPressed: (value) {},
-                          backgroundColor: Colors.blue[300]!,
-                          foregroundColor: Colors.white,
-                          icon: Icons.edit,
-                        ),
-                        const SizedBox(
-                          width: 3,
-                        ),
-                        SlidableAction(
-                          flex: 2,
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(12.0),
+                          const SizedBox(
+                            width: 3,
                           ),
-                          onPressed: (value) {},
-                          backgroundColor: Colors.red[300]!,
-                          foregroundColor: Colors.white,
-                          icon: Icons.delete,
-                        ),
-                      ],
-                    ),
-                    child: Card(
-                      child: ListTile(
-                        mouseCursor: SystemMouseCursors.click,
-                        onTap: () {},
-                        title: Text(
-                          "${index + 1}. Ahmad",
-                          style: GoogleFonts.montserrat(
-                            letterSpacing: 1,
-                            fontWeight: FontWeight.w500,
+                          SlidableAction(
+                            flex: 2,
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(12.0),
+                            ),
+                            onPressed: (value) {},
+                            backgroundColor: Colors.red[300]!,
+                            foregroundColor: Colors.white,
+                            icon: Icons.delete,
                           ),
-                        ),
-                        subtitle: Text(
-                          "123@gmail.com || Admin",
-                          style: GoogleFonts.montserrat(
-                            letterSpacing: 1,
-                            fontWeight: FontWeight.w500,
+                        ],
+                      ),
+                      child: Card(
+                        child: ListTile(
+                          mouseCursor: SystemMouseCursors.click,
+                          onTap: () {},
+                          title: Text(
+                            "${index + 1}. Ahmad",
+                            style: GoogleFonts.montserrat(
+                              letterSpacing: 1,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          subtitle: Text(
+                            "123@gmail.com || Admin",
+                            style: GoogleFonts.montserrat(
+                              letterSpacing: 1,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10.0,
-                  ),
-                ],
-              );
-            },
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ),
       ),

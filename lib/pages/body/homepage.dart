@@ -325,68 +325,70 @@ class _HomePageState extends State<HomePage> {
       ),
 
       //Body
-      body: ListView(
-        padding: const EdgeInsets.all(12),
-        children: [
-          const SizedBox(
-            height: 20.0,
-          ),
-          const MenuTask(
-            total: 3,
-            warna: Colors.black,
-            judul: "Timeline",
-            route: HomeTimeline(),
-          ),
-          const SizedBox(
-            height: 20.0,
-          ),
-          const MenuTask(
-            total: 9,
-            warna: Colors.red,
-            judul: "Open",
-            route: HomeOpen(),
-          ),
-          const SizedBox(
-            height: 20.0,
-          ),
-          const MenuTask(
-            total: 4,
-            warna: Colors.blue,
-            judul: "Progress",
-            route: HomeProgress(),
-          ),
-          const SizedBox(
-            height: 20.0,
-          ),
-          const MenuTask(
-            total: 16,
-            warna: Colors.yellow,
-            judul: "On Hold",
-            route: HomeOnhold(),
-          ),
-          const SizedBox(
-            height: 20.0,
-          ),
-          const MenuTask(
-            total: 12,
-            warna: Colors.indigo,
-            judul: "In Review",
-            route: HomeInReview(),
-          ),
-          const SizedBox(
-            height: 20.0,
-          ),
-          const MenuTask(
-            total: 23,
-            warna: Colors.green,
-            judul: "Completed",
-            route: HomeCompleted(),
-          ),
-          Container(),
-          const SizedBox(
-            height: 20.0,
-          ),
-        ],
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.all(12),
+          children: [
+            const SizedBox(
+              height: 20.0,
+            ),
+            const MenuTask(
+              total: 3,
+              warna: Colors.black,
+              judul: "Timeline",
+              route: HomeTimeline(),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            const MenuTask(
+              total: 9,
+              warna: Colors.red,
+              judul: "Open",
+              route: HomeOpen(),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            const MenuTask(
+              total: 4,
+              warna: Colors.blue,
+              judul: "Progress",
+              route: HomeProgress(),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            const MenuTask(
+              total: 16,
+              warna: Colors.yellow,
+              judul: "On Hold",
+              route: HomeOnhold(),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            const MenuTask(
+              total: 12,
+              warna: Colors.indigo,
+              judul: "In Review",
+              route: HomeInReview(),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            const MenuTask(
+              total: 23,
+              warna: Colors.green,
+              judul: "Completed",
+              route: HomeCompleted(),
+            ),
+            Container(),
+            const SizedBox(
+              height: 20.0,
+            ),
+          ],
+        ),
       ),
     );
   }
