@@ -6,25 +6,37 @@ Project Dari kelompok 6
 - Icon Logo
 - App Name
 - Splash Screen
-- Clean UI
-- Functional Fiture (Ready To Use)
+- Clean UI (Material 3 Design)
+- Darkmode
+- Validation Fungtion
+- Multiplatrform & Responsive
 
 ### 📄 **Page Include**
+- Login Page (Ready To Use)
+- Signup Page (Ready To Use)
 - Home Page
+- DetailTask Page
+- Multi Management Page
+- Setting Page
 
 ### 🎖  **Installing**
 ```
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.5
+  fluid_dialog: ^1.1.0
+  flutter_slidable: ^2.0.0
+  form_validation: ^2.2.0+6
+  get: ^4.6.5
+  google_fonts: ^4.0.3
   flutter_native_splash: ^2.2.10+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  flutter_launcher_icons: "^0.10.0"
+  flutter_lints: ^2.0.1
+  flutter_launcher_icons: "^0.11.0"
 
 # flutter pub run flutter_launcher_icons:main
 flutter_icons:
@@ -40,12 +52,12 @@ flutter_icons:
 
 # flutter pub run flutter_native_splash:create
 flutter_native_splash:
-  color: "#ffffff"
+  color: "#221F1F"
   image: assets/flutter.png
   web: true
   android_12:
     image: assets/flutter.png
-    icon_background_color: "#ffffff"
+    icon_background_color: "#221F1F"
 ```
 
 ### 🚀 **Getting Started**

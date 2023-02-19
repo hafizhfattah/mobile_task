@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return Obx(() {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Mobile Task',
+        title: 'On Task',
         theme: c.isActive.value
             ? ThemeData(
                 brightness: Brightness.dark,
